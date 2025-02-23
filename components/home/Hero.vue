@@ -1,13 +1,33 @@
 <script setup lang="ts">
 import { Plus } from 'lucide-vue-next'
-import { animate, inView } from 'motion'
+
+const { $gsap } = useNuxtApp()
 
 onMounted(() => {
-  inView('#logos', (element) => {
-    animate(element, { scale: 1.2 }, { duration: 0.5 })
-    return () => {
-      animate(element, { scale: 1 })
-    }
+  $gsap.fromTo('#logos', {
+    scale: 1.2,
+    duration: 0.6,
+  }, {
+    scale: 1,
+    duration: 0.6,
+  })
+
+  $gsap.fromTo('#title', {
+    opacity: 0,
+    y: 20,
+    duration: 0.6,
+  }, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+  })
+
+  $gsap.from('.content p', {
+    opacity: 0,
+    y: 20,
+    duration: 0.8,
+    stagger: 0.3, // Delay between each <p>
+    ease: 'power2.out',
   })
 })
 </script>
@@ -32,16 +52,20 @@ onMounted(() => {
         to="https://motion.dev"
         target="_blank"
       >
-        <Icon
-          name="logos:framer"
-          class="size-12"
+        <NuxtImg
+          src="/images/gsap.png"
+          alt="gsap logo"
+          class="h-10 w-auto"
         />
       </NuxtLink>
     </div>
-    <h1 class="text-xl font-bold text-neutral-950 dark:text-neutral-200">
+    <h1
+      id="title"
+      class="text-xl font-bold text-neutral-950 dark:text-neutral-200"
+    >
       Nuxt Motion Playground
     </h1>
-    <div class="space-y-4">
+    <div class="content space-y-4">
       <p>Hey 👋! Welcome to <strong>Nuxt Motion Playground</strong>.</p>
       <p>
         I’m <strong>@thecodingmontana</strong>, and for the longest time, I hesitated to add animations to my websites and web apps.
@@ -49,15 +73,18 @@ onMounted(() => {
         in animations and their ability to make interfaces feel dynamic and engaging.
       </p>
       <p>
-        That’s why I created <strong>Nuxt Motion Playground</strong>—a space where I experiment with motion and bring interfaces to life.
+        That’s why I created <strong>Nuxt Motion Playground</strong>—a space where I experiment animations and bring interfaces to life.
         If you prefer an existing Vue package, you can check out <NuxtLink
           to="https://motion.unovue.com"
           target="_blank"
-        ><strong>Motion Vue</strong></NuxtLink>.
-        I’ve chosen to work directly with <NuxtLink
+        ><strong>Motion Vue</strong></NuxtLink>, based on <NuxtLink
           to="https://motion.dev"
           target="_blank"
-        ><strong>Motion</strong></NuxtLink> (Framer Motion) itself,
+        ><strong>Motion</strong></NuxtLink> (Framer Motion).
+        I’ve chosen to work directly with <NuxtLink
+          to="https://gsap.com"
+          target="_blank"
+        ><strong>GSAP</strong></NuxtLink> itself,
         without relying on any wrapper packages. This allows me to fully understand and control the animation logic while integrating
         it seamlessly into my Nuxt projects.
       </p>
