@@ -1,15 +1,10 @@
 <script setup lang="ts">
 import { Plus } from 'lucide-vue-next'
-
-const { $gsap } = useNuxtApp()
+import { animate, inView } from 'motion'
 
 onMounted(() => {
-  $gsap.fromTo('#logos', {
-    scale: 1.5,
-    opacity: 0,
-  }, {
-    scale: 1,
-    opacity: 1,
+  inView('#logos', (element) => {
+    animate(element, { scale: 1.2, opacity: 0, y: 0 }, { duration: 0.5 })
   })
 })
 </script>
@@ -40,10 +35,7 @@ onMounted(() => {
         />
       </NuxtLink>
     </div>
-    <h1
-      id="title"
-      class="text-xl font-bold text-neutral-950 dark:text-neutral-200"
-    >
+    <h1 class="text-xl font-bold text-neutral-950 dark:text-neutral-200">
       Nuxt Motion Playground
     </h1>
     <div class="space-y-4">
