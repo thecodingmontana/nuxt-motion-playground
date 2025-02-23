@@ -5,6 +5,9 @@ import { animate, inView } from 'motion'
 onMounted(() => {
   inView('#logos', (element) => {
     animate(element, { scale: 1.2 }, { duration: 0.5 })
+    return () => {
+      animate(element, { scale: 1 })
+    }
   })
 })
 </script>
