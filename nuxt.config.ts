@@ -1,16 +1,55 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+
+  modules: [
+    '@nuxt/eslint',
+    '@nuxtjs/color-mode',
+    '@nuxt/image',
+    '@nuxt/icon',
+    '@nuxtjs/google-fonts',
+    'shadcn-nuxt',
+  ],
   devtools: { enabled: true },
+  colorMode: {
+    preference: 'system', // default value of $colorMode.preference
+    fallback: 'light', // fallback value if not system preference found
+    hid: 'nuxt-color-mode-script',
+    globalName: '__NUXT_COLOR_MODE__',
+    componentName: 'ColorScheme',
+    classPrefix: '',
+    classSuffix: '',
+    storage: 'localStorage', // or 'sessionStorage' or 'cookie'
+    storageKey: 'motion-playround-color-mode',
+  },
 
   future: {
     compatibilityVersion: 4,
   },
-
-  modules: ['@nuxt/eslint'],
+  compatibilityDate: '2024-11-01',
+  vite: {
+    server: {
+      allowedHosts: ['db60-102-220-169-7.ngrok-free.app'],
+    },
+  },
   eslint: {
     config: {
-      stylistic: true
-    }
-  }
+      stylistic: true,
+    },
+  },
+  googleFonts: {
+    families: {
+      Geist: true,
+    },
+  },
+  shadcn: {
+    /**
+     * Prefix for all the imported component
+     */
+    prefix: '',
+    /**
+     * Directory that the component lives in.
+     * @default "./components/ui"
+     */
+    componentDir: './components/ui',
+  },
 })
