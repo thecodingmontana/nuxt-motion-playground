@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     'shadcn-nuxt',
     'nuxt-og-image',
+    '@nuxtjs/tailwindcss',
   ],
   devtools: { enabled: true },
   site: {
@@ -42,7 +43,10 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-      Geist: true,
+      Geist: {
+        wght: [100, 400],
+        ital: [100],
+      },
     },
   },
   shadcn: {

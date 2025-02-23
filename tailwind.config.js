@@ -2,10 +2,13 @@
 export default {
   darkMode: ['class'],
   content: [],
-  fontFamily: {
-    geist: ['Geist', 'sans-serif'],
-  },
   theme: {
+    fontFamily: {
+      geist: [
+        'Geist',
+        'sans-serif',
+      ],
+    },
     extend: {
       borderRadius: {
         lg: 'var(--radius)',

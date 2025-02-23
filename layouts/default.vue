@@ -32,7 +32,7 @@ defineOgImageComponent('Nuxt', {
 </script>
 
 <template>
-  <main class="min-h-screen overflow-hidden bg-[#faf7f2] dark:bg-background xl:overflow-visible">
+  <main class="min-h-screen overflow-hidden max-w-6xl mx-auto">
     <Header />
     <slot />
     <Footer />
