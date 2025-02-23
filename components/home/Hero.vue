@@ -1,10 +1,25 @@
 <script setup lang="ts">
 import { Plus } from 'lucide-vue-next'
+
+const { $gsap } = useNuxtApp()
+
+onMounted(() => {
+  $gsap.fromTo('#logos', {
+    scale: 1.5,
+    opacity: 0,
+  }, {
+    scale: 1,
+    opacity: 1,
+  })
+})
 </script>
 
 <template>
-  <section class="px-4 sm:px-6 lg:px-8 py-12 space-y-5">
-    <div class="flex items-center justify-center gap-3">
+  <section class="px-4 py-4 sm:px-6 lg:px-8 sm:py-12 space-y-5">
+    <div
+      id="logos"
+      class="flex items-center justify-center gap-3"
+    >
       <NuxtLink
         to="https://nuxt.com"
         target="_blank"
@@ -25,7 +40,10 @@ import { Plus } from 'lucide-vue-next'
         />
       </NuxtLink>
     </div>
-    <h1 class="text-xl font-bold text-neutral-950 dark:text-neutral-200">
+    <h1
+      id="title"
+      class="text-xl font-bold text-neutral-950 dark:text-neutral-200"
+    >
       Nuxt Motion Playground
     </h1>
     <div class="space-y-4">
