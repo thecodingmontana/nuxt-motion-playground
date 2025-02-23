@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import Footer from '~/components/shared/Footer.vue'
+import Header from '~/components/shared/Header.vue'
+
 useHead({
   meta: [
     { property: 'og:title', content: `Nuxt Motion Playground` },
@@ -30,8 +33,8 @@ defineOgImageComponent('Nuxt', {
 
 <template>
   <main class="min-h-screen overflow-hidden bg-[#faf7f2] dark:bg-background xl:overflow-visible">
-    <AppHeader />
+    <Header />
     <slot />
-    <AppFooter />
+    <Footer />
   </main>
 </template>
