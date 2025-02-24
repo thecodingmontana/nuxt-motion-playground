@@ -7,6 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from '~/components/ui/sheet'
+import { links } from '~/types'
 
 const modalStore = useModalStore()
 
@@ -66,13 +67,26 @@ const onClose = () => {
               Getting Started
             </h3>
             <ul class="space-y-3.5 border-l border-muted-foreground">
-              <li class="pl-3.5 transition-colors hover:border-foreground hover:text-foreground">
-                <NuxtLink
-                  to="/creations"
-                  @click="onClose"
-                >
-                  Introduction
-                </NuxtLink>
+              <li
+                v-for="(link, index) in links"
+                :key="index"
+                class="space-y-3.5"
+              >
+                <h3 class="font-semibold text-foreground">
+                  {{ link.title }}
+                </h3>
+                <ul class="space-y-3.5 border-l border-muted-foreground">
+                  <li
+                    v-for="(child, childIndex) in link.children"
+                    :key="childIndex"
+                    class="pl-3.5 transition-colors hover:border-foreground hover:text-foreground"
+                    @click="onClose"
+                  >
+                    <NuxtLink :to="child.path">
+                      {{ child.name }}
+                    </NuxtLink>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>

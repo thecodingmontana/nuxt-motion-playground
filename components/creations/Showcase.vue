@@ -19,7 +19,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="showcase relative flex h-[338px] items-center justify-center bg-muted px-3.5 rounded sm:rounded-[18px] sm:px-0">
+  <div class="showcase relative overflow-hidden flex h-[338px] items-center justify-center bg-muted px-3.5 rounded sm:rounded-[18px] sm:px-0">
     <slot />
   </div>
 </template>
