@@ -7,19 +7,19 @@ useHead({
     { property: 'og:title', content: `Nuxt Motion Playground` },
     {
       name: 'description',
-      content: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js',
+      content: 'A Playground for animation driven interfaces with Nuxt.js and GSAP',
     },
     {
       property: 'og:description',
-      content: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js',
+      content: 'A Playground for animation driven interfaces with Nuxt.js and GSAP',
     },
-    { property: 'og:url', content: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js' },
-    { name: 'twitter:title', content: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js' },
+    { property: 'og:url', content: 'A Playground for animation driven interfaces with Nuxt.js and GSAP' },
+    { name: 'twitter:title', content: 'A Playground for animation driven interfaces with Nuxt.js and GSAP' },
     {
       name: 'twitter:description',
-      content: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js',
+      content: 'A Playground for animation driven interfaces with Nuxt.js and GSAP',
     },
-    { name: 'twitter:site', content: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js' },
+    { name: 'twitter:site', content: 'A Playground for animation driven interfaces with Nuxt.js and GSAP' },
   ],
   title: `Nuxt Motion Playground`,
 })
@@ -27,7 +27,7 @@ useHead({
 defineOgImageComponent('Nuxt', {
   headline: 'Greetings 👋',
   title: 'Nuxt Motion Playground',
-  description: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js',
+  description: 'A Playground for animation driven interfaces with Nuxt.js and GSAP',
 })
 </script>
 

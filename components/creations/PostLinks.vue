@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   postLink: string
-  originalLink: string
+  originalLink?: string
 }>()
 
 const { $gsap } = useNuxtApp()
@@ -51,6 +51,7 @@ onUnmounted(() => {
       </button>
     </NuxtLink>
     <NuxtLink
+      v-if="props?.originalLink"
       target="_blank"
       :to="props.originalLink"
     >

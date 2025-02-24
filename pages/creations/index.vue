@@ -10,7 +10,7 @@ useHead({
 defineOgImageComponent('Nuxt', {
   headline: 'Greetings 👋',
   title: 'Creations - Introductions',
-  description: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js',
+  description: 'A Playground for animation driven interfaces with Nuxt.js and GSAP',
 })
 
 const { $gsap } = useNuxtApp()
