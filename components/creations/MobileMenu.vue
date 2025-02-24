@@ -1,14 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const modalStore = useModalStore()
+
+const onOpen = () => {
+  modalStore?.onOpenType('mobileMenu')
+  modalStore?.setIsOpen(true)
+}
+</script>
 
 <template>
   <div class="flex items-center justify-between border-y px-3.5 pb-3.5 lg:border-none lg:px-9 lg:pb-0">
     <div class="flex items-center p-3.5 pb-0 text-muted-foreground lg:hidden">
       <button
-        type="button"
-        aria-haspopup="dialog"
-        aria-expanded="false"
-        aria-controls="radix-:R36ba:"
-        data-state="closed"
+        @click="onOpen"
       >
         <div class="flex items-center gap-3.5 text-muted-foreground">
           <svg
