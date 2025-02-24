@@ -34,6 +34,6 @@ onUnmounted(() => {
     :id="`airbnb-img-${props?.index}`"
     :src="props.image.src"
     :alt="props.image.alt"
-    class="size-24 border-2 border-gray-100 rounded-lg -m-3 shadow-lg"
+    class="size-12 flex-shrink-0 sm:size-24 border-2 border-gray-100 rounded-lg -m-3 shadow-lg"
   />
 </template>

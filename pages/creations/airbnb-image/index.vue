@@ -90,7 +90,7 @@ onUnmounted(() => {
           <strong>@imeronn</strong></NuxtLink>.
       </p>
       <CreationsPostLinks
-        post-link="https://x.com/vaunblu/status/1836041963843289285"
+        post-link="https://x.com/codewithmontana/status/1894067279656006006"
         original-link="https://x.com/imeronn/status/1798345509448618378"
       />
     </div>
