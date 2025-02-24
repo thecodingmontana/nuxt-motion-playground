@@ -4,7 +4,7 @@ import Header from '~/components/shared/Header.vue'
 
 useHead({
   meta: [
-    { property: 'og:title', content: `Nuxt Motion Playground` },
+    { property: 'og:title', content: `Creations` },
     {
       name: 'description',
       content: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js',
@@ -21,12 +21,12 @@ useHead({
     },
     { name: 'twitter:site', content: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js' },
   ],
-  title: `Nuxt Motion Playground`,
+  title: `Creations`,
 })
 
 defineOgImageComponent('Nuxt', {
   headline: 'Greetings 👋',
-  title: 'Nuxt Motion Playground',
+  title: 'Creations',
   description: 'A Playground for Motion (Framer Motion) driven interfaces with Nuxt.js',
 })
 </script>
@@ -34,7 +34,13 @@ defineOgImageComponent('Nuxt', {
 <template>
   <main class="min-h-screen overflow-hidden max-w-7xl mx-auto">
     <Header />
-    <slot />
+    <CreationsMobileMenu />
+    <div class="mt-9 flex flex-1 gap-x-9 lg:px-9">
+      <CreationsSidebar />
+      <main class="mx-auto mb-36 flex max-w-screen-md flex-1 flex-col space-y-9 px-3.5 lg:max-w-none">
+        <slot />
+      </main>
+    </div>
     <Footer />
   </main>
 </template>
