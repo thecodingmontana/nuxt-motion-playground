@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     'shadcn-nuxt',
     'nuxt-og-image',
     '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
   ],
   devtools: { enabled: true },
   site: {
@@ -48,6 +50,16 @@ export default defineNuxtConfig({
         ital: [100],
       },
     },
+  },
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
+  piniaPluginPersistedstate: {
+    storage: 'cookies',
+    cookieOptions: {
+      sameSite: 'lax',
+    },
+    debug: true,
   },
   shadcn: {
     /**

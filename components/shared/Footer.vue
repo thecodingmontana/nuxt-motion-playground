@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="mx-auto absolute bottom-0 right-0 left-0 max-w-screen-md my-8 lg:my-12 flex flex-col items-center gap-6 text-sm">
+  <div class="mx-auto max-w-screen-md my-8 lg:my-12 flex flex-col items-center gap-6 text-sm">
     <div class="flex items-center justify-center gap-2 md:justify-end">
       <span
         class="font-sofia text-neutral-500 dark:text-neutral-500"

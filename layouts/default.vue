@@ -32,7 +32,7 @@ defineOgImageComponent('Nuxt', {
 </script>
 
 <template>
-  <main class="min-h-screen overflow-hidden max-w-7xl mx-auto">
+  <main class="min-h-screen relative overflow-hidden max-w-7xl mx-auto flex flex-col">
     <Header />
     <slot />
     <Footer />

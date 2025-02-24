@@ -45,7 +45,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="space-y-3.5 px-3.5 sm:px-0">
+  <section class="space-y-5 px-3.5 sm:px-0">
     <h1 class="text-2xl font-semibold">
       Airbnb Image
     </h1>
@@ -63,5 +63,8 @@ onUnmounted(() => {
         original-link="https://x.com/imeronn/status/1798345509448618378"
       />
     </div>
+    <CreationsShowcase>
+      Hello
+    </CreationsShowcase>
   </section>
 </template>
