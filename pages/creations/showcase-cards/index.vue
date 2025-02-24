@@ -84,7 +84,7 @@ const onSelectCard = (imgIndex: number, currentBottom: string) => {
     </h1>
     <div class="content max-w-[100vw] space-y-3.5 px-3.5 leading-relaxed sm:px-0">
       <p class="max-w-xl">
-        Anime movie poster showcase cards.
+        Anime movie poster showcase.
       </p>
       <CreationsPostLinks
         post-link="https://x.com/codewithmontana/status/1894067279656006006"
@@ -96,7 +96,7 @@ const onSelectCard = (imgIndex: number, currentBottom: string) => {
         :id="`manga-backdrop-${index}`"
         :key="index"
         :class="cn(
-          'w-[25rem] cursor-pointer absolute left-0 right-0 mx-auto rounded-md overflow-clip before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70',
+          'w-[18rem] sm:w-[25rem] cursor-pointer absolute left-0 right-0 mx-auto rounded-md overflow-clip before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70',
         )"
         :style="{
           bottom: img.bottom,
