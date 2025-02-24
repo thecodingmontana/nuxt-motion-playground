@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import AirbnbImage from '~/components/creations/airbnb-image/AirbnbImage.vue'
+import type { AirbnbImage as TypeAirbnbImage } from '~/types'
+
 definePageMeta({
   layout: 'creations',
 })
@@ -17,6 +20,34 @@ const { $gsap } = useNuxtApp()
 
 let h1Animation: gsap.core.Tween | null = null
 let contentAnimation: gsap.core.Tween | null = null
+
+const images = ref<TypeAirbnbImage[]>([
+  {
+    src: 'https://a0.muscache.com/im/pictures/miso/Hosting-2810308/original/a653d85a-1a97-45d7-a213-78ef2286122a.jpeg?im_w=720',
+    alt: 'Tree',
+    rotate: 10,
+  },
+  {
+    src: 'https://a0.muscache.com/im/pictures/2cc58022-2004-4034-a281-22fb622e7461.jpg?im_w=720',
+    alt: 'Tree',
+    rotate: -20,
+  },
+  {
+    src: 'https://a0.muscache.com/im/pictures/miso/Hosting-37988614/original/03d8ff60-c345-45ad-8aab-5c8f3cb5b1cd.jpeg?im_w=720',
+    alt: 'Tree',
+    rotate: -5,
+  },
+  {
+    src: 'https://a0.muscache.com/im/pictures/26726bc5-6c5d-48f1-8767-f98021ed4abb.jpg?im_w=720',
+    alt: 'Tree',
+    rotate: 5,
+  },
+  {
+    src: 'https://a0.muscache.com/im/pictures/0893e628-5d4b-4bd6-880d-870961618445.jpg?im_w=720',
+    alt: 'Tree',
+    rotate: -2,
+  },
+])
 
 onMounted(() => {
   h1Animation = $gsap.fromTo('h1', {
@@ -64,7 +95,15 @@ onUnmounted(() => {
       />
     </div>
     <CreationsShowcase>
-      Hello
+      <div class="flex flex-row items-center justify-center p-4 relative'">
+        <AirbnbImage
+          v-for="(img, index) in images"
+          ref="imgRefs"
+          :key="index"
+          :image="img"
+          :index="index"
+        />
+      </div>
     </CreationsShowcase>
   </section>
 </template>
