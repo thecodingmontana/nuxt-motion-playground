@@ -10,8 +10,8 @@ let contentAnimation: gsap.core.Tween | null = null
 onMounted(() => {
   logoAnimation = $gsap.fromTo(
     '#logos',
-    { scale: 1.2 },
-    { scale: 1, duration: 0.6 },
+    { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.6 },
   )
 
   titleAnimation = $gsap.fromTo(
