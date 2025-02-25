@@ -64,6 +64,8 @@ const splitText = (selector: string) => {
       :is-replay="true"
       class="h-[450px]"
       @restart="onRestartAnimation"
-    />
+    >
+Coming Soon
+</CreationsShowcase>
   </section>
 </template>
