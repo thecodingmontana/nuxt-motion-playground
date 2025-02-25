@@ -65,7 +65,7 @@ const splitText = (selector: string) => {
           <strong>@kubadesign</strong></NuxtLink>.
       </p>
       <CreationsPostLinks
-        post-link="https://x.com/codewithmontana/status/1894067279656006006"
+        post-link="https://x.com/codewithmontana/status/1894337850620903439"
         original-link="https://x.com/kubadesign/status/1882444428402692120"
       />
     </div>
