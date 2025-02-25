@@ -65,7 +65,7 @@ const splitText = (selector: string) => {
       class="h-[450px]"
       @restart="onRestartAnimation"
     >
-Coming Soon
-</CreationsShowcase>
+      Coming Soon
+    </CreationsShowcase>
   </section>
 </template>
