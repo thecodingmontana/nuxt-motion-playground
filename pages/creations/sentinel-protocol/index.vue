@@ -74,17 +74,17 @@ const splitText = (selector: string) => {
       />
     </div>
     <CreationsShowcase class="h-[450px]">
-      <div class="before:inset-x-0 before:z-[1] before:size-full p-10 w-full h-full before:bg-gradient-to-t left-0 right-0 before:from-gray-900/70 absolute z-10">
+      <div class="before:inset-x-0 before:z-[1] before:size-full p-5 sm:p-10 w-full h-full before:bg-gradient-to-t left-0 right-0 before:from-gray-900/70 absolute z-10">
         <div class="absolute bottom-10 text-white animate-text">
-          <h2 class="text-2xl font-bold">
+          <h2 class="text-md sm:text-2xl font-bold">
             The Sentinel Protocol
           </h2>
-          <p class="text-xl font-light">
+          <p class="text-sm text-balance sm:text-xl font-light">
             The old world died quietly. The new one screams.
           </p>
           <div class="info px-2 mt-4 flex items-center gap-3">
             <div class="h-[0.2px] w-6 bg-white self-start mt-4 flex-shrink-0" />
-            <p class="text-muted">
+            <p class="text-sm text-balance sm:text-base text-muted">
               Nobody saw it coming. The city changed overnight - steel veins grew through concrete, neon bled into shadows. They called it an invasion.
             </p>
           </div>
