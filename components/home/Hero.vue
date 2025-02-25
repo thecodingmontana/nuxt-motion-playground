@@ -17,7 +17,7 @@ onMounted(() => {
   titleAnimation = $gsap.fromTo(
     '#title',
     { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 0.6 },
+    { opacity: 1, y: 0, duration: 0.6, delay: 0.3 },
   )
 
   contentAnimation = $gsap.from('.content p', {
@@ -26,6 +26,7 @@ onMounted(() => {
     duration: 0.8,
     stagger: 0.3,
     ease: 'power2.out',
+    delay: 0.5,
   })
 })
 
