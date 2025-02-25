@@ -15,33 +15,29 @@ defineOgImageComponent('Nuxt', {
 
 const { $gsap } = useNuxtApp()
 
-onMounted(async () => {
-  $gsap.fromTo('.zoomImg', {
-    scale: 2,
-    opacity: 0.5,
-  }, {
-    scale: 1,
-    opacity: 1,
-    duration: 5,
-    ease: 'power3.out',
-    delay: 0.5,
-  })
+let timeline: gsap.core.Timeline | null = null
 
+onMounted(async () => {
   await nextTick()
   splitText('.animate-text h2')
   splitText('.animate-text p')
 
-  $gsap.fromTo(
-    '.char',
-    { opacity: 0 },
-    { opacity: 1, duration: 0.05, stagger: 0.05, ease: 'power1.out' },
-  )
+  timeline = $gsap.timeline({ paused: true })
 
-  $gsap.fromTo(
-    '.info',
-    { opacity: 0, y: 20 },
-    { opacity: 1, duration: 2, y: 0, ease: 'power1.out', delay: 2 },
-  )
+  timeline
+    .fromTo('.zoomImg', { scale: 2, opacity: 0.5 }, { scale: 1, opacity: 1, duration: 5, ease: 'power3.out', delay: 0.5 })
+    .fromTo('.char', { opacity: 0 }, { opacity: 1, duration: 0.05, stagger: 0.05, ease: 'power1.out' }, '-=3')
+    .fromTo('.info', { opacity: 0, y: 20 }, { opacity: 1, duration: 2, y: 0, ease: 'power1.out', delay: 1 }, '-=2')
+
+  timeline.play()
+})
+
+const onRestartAnimation = () => {
+  timeline?.restart()
+}
+
+onUnmounted(() => {
+  timeline?.kill()
 })
 
 const splitText = (selector: string) => {
@@ -73,7 +69,11 @@ const splitText = (selector: string) => {
         original-link="https://x.com/kubadesign/status/1882444428402692120"
       />
     </div>
-    <CreationsShowcase class="h-[450px]">
+    <CreationsShowcase
+      :is-replay="true"
+      class="h-[450px]"
+      @restart="onRestartAnimation"
+    >
       <div class="before:inset-x-0 before:z-[1] before:size-full p-5 sm:p-10 w-full h-full before:bg-gradient-to-t left-0 right-0 before:from-gray-900/70 absolute z-10">
         <div class="absolute bottom-10 text-white animate-text">
           <h2 class="text-md sm:text-2xl font-bold">
@@ -84,7 +84,7 @@ const splitText = (selector: string) => {
           </p>
           <div class="info px-2 mt-4 flex items-center gap-3">
             <div class="h-[0.2px] w-6 bg-white self-start mt-4 flex-shrink-0" />
-            <p class="text-sm text-balance sm:text-base text-muted">
+            <p class="text-sm text-balance dark:text-white sm:text-base text-muted">
               Nobody saw it coming. The city changed overnight - steel veins grew through concrete, neon bled into shadows. They called it an invasion.
             </p>
           </div>

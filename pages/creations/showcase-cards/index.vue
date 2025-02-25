@@ -90,7 +90,10 @@ const onSelectCard = (imgIndex: number, currentBottom: string) => {
         post-link="https://x.com/codewithmontana/status/1894067279656006006"
       />
     </div>
-    <CreationsShowcase class="relative h-[500px]">
+    <CreationsShowcase
+      :is-replay="false"
+      class="relative h-[500px]"
+    >
       <div
         v-for="(img, index) in images"
         :id="`manga-backdrop-${index}`"
