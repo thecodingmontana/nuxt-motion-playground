@@ -23,6 +23,7 @@ export const links = ref([
     children: [
       { name: 'Airbnb Image', path: '/creations/airbnb-image' },
       { name: 'Showcase Cards', path: '/creations/showcase-cards' },
+      { name: 'Sentinel Protocol', path: '/creations/sentinel-protocol' },
     ],
   },
 ])
