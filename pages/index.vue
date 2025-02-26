@@ -2,8 +2,6 @@
 
 <template>
   <main>
-    <client-only>
-      <HomeHero />
-    </client-only>
+    <HomeHero />
   </main>
 </template>
