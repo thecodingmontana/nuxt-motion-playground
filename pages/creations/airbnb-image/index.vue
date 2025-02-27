@@ -94,7 +94,7 @@ onUnmounted(() => {
         original-link="https://x.com/imeronn/status/1798345509448618378"
       />
     </div>
-    <CreationsShowcase>
+    <CreationsShowcase :is-replay="false">
       <div class="flex flex-row items-center justify-center p-4 relative'">
         <AirbnbImage
           v-for="(img, index) in images"
