@@ -4,12 +4,12 @@ definePageMeta({
 })
 
 useHead({
-  titleTemplate: '%s - Bouncy Cards',
+  titleTemplate: '%s - Service Card',
 })
 
 defineOgImageComponent('Nuxt', {
   headline: 'Greetings 👋',
-  title: 'Creations - Bouncy Cards',
+  title: 'Creations - Service Card',
   description: 'A Playground for animation driven interfaces with Nuxt.js and GSAP',
 })
 
@@ -53,7 +53,7 @@ const splitText = (selector: string) => {
 <template>
   <section class="space-y-5 px-3.5 sm:px-0">
     <h1 class="text-2xl font-semibold">
-      Bouncy Cards
+      Service Card
     </h1>
     <div class="content max-w-[100vw] space-y-3.5 px-3.5 leading-relaxed sm:px-0">
       <CreationsPostLinks
