@@ -15,39 +15,65 @@ defineOgImageComponent('Nuxt', {
 
 const { $gsap } = useNuxtApp()
 
+const topImages = ref([
+  { src: 'https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=600&auto=format&fit=crop&q=60', alt: 'Sculpture' },
+  { src: 'https://images.unsplash.com/photo-1613871232466-cbb8285dffb6?w=600&auto=format&fit=crop&q=60', alt: 'Digital Orca' },
+  { src: 'https://images.unsplash.com/photo-1465631494067-3e0491e95bd1?w=600&auto=format&fit=crop&q=60', alt: 'Portery' },
+  { src: 'https://images.unsplash.com/photo-1612892483236-52d32a0e0ac1?w=600&auto=format&fit=crop&q=60', alt: 'Wadi Rum Village' },
+  { src: 'https://images.unsplash.com/photo-1635322966219-b75ed372eb01?w=600&auto=format&fit=crop&q=60', alt: 'Render' },
+  { src: 'https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=600&auto=format&fit=crop&q=60', alt: 'Sculpture' },
+  { src: 'https://images.unsplash.com/photo-1613871232466-cbb8285dffb6?w=600&auto=format&fit=crop&q=60', alt: 'Digital Orca' },
+  { src: 'https://images.unsplash.com/photo-1465631494067-3e0491e95bd1?w=600&auto=format&fit=crop&q=60', alt: 'Portery' },
+  { src: 'https://images.unsplash.com/photo-1612892483236-52d32a0e0ac1?w=600&auto=format&fit=crop&q=60', alt: 'Wadi Rum Village' },
+  { src: 'https://images.unsplash.com/photo-1635322966219-b75ed372eb01?w=600&auto=format&fit=crop&q=60', alt: 'Render' },
+  { src: 'https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=600&auto=format&fit=crop&q=60', alt: 'Sculpture' },
+  { src: 'https://images.unsplash.com/photo-1613871232466-cbb8285dffb6?w=600&auto=format&fit=crop&q=60', alt: 'Digital Orca' },
+  { src: 'https://images.unsplash.com/photo-1465631494067-3e0491e95bd1?w=600&auto=format&fit=crop&q=60', alt: 'Portery' },
+  { src: 'https://images.unsplash.com/photo-1612892483236-52d32a0e0ac1?w=600&auto=format&fit=crop&q=60', alt: 'Wadi Rum Village' },
+  { src: 'https://images.unsplash.com/photo-1635322966219-b75ed372eb01?w=600&auto=format&fit=crop&q=60', alt: 'Render' },
+  { src: 'https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?w=600&auto=format&fit=crop&q=60', alt: 'Sculpture' },
+  { src: 'https://images.unsplash.com/photo-1613871232466-cbb8285dffb6?w=600&auto=format&fit=crop&q=60', alt: 'Digital Orca' },
+  { src: 'https://images.unsplash.com/photo-1465631494067-3e0491e95bd1?w=600&auto=format&fit=crop&q=60', alt: 'Portery' },
+  { src: 'https://images.unsplash.com/photo-1612892483236-52d32a0e0ac1?w=600&auto=format&fit=crop&q=60', alt: 'Wadi Rum Village' },
+  { src: 'https://images.unsplash.com/photo-1635322966219-b75ed372eb01?w=600&auto=format&fit=crop&q=60', alt: 'Render' },
+])
+
+// Create a duplicate set for the seamless loop
+const allImages = ref([...topImages.value, ...topImages.value])
+
 let timeline: gsap.core.Timeline | null = null
 
 onMounted(async () => {
   await nextTick()
-  splitText('.animate-text h2')
-  splitText('.animate-text p')
-
   timeline = $gsap.timeline({ paused: true })
 
-  timeline
-    .fromTo('.zoomImg', { scale: 2, opacity: 0.5 }, { scale: 1, opacity: 1, duration: 5, ease: 'power3.out', delay: 0.5 })
-    .fromTo('.char', { opacity: 0 }, { opacity: 1, duration: 0.05, stagger: 0.05, ease: 'power1.out' }, '-=3')
-    .fromTo('.info', { opacity: 0, y: 20 }, { opacity: 1, duration: 2, y: 0, ease: 'power1.out', delay: 1 }, '-=2')
+  // Create the horizontal scrolling marquee effect
+  $gsap.to('.marquee-container', {
+    xPercent: -50,
+    repeat: -1,
+    duration: 30,
+    ease: 'linear',
+  })
+
+  // Create the smooth wavy animation for each item
+  // Each item moves up and down in a sine wave, but remains in its horizontal position
+  const waveItems = document.querySelectorAll('.marquee-item')
+  waveItems.forEach((item, i) => {
+    $gsap.to(item, {
+      y: i => 15 * Math.sin(i * 0.5 + 1), // Smooth sine wave pattern
+      duration: 2 + (i % 4) * 3, // Slightly varied durations for natural feel
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+    })
+  })
 
   timeline.play()
 })
 
-const onRestartAnimation = () => {
-  timeline?.restart()
-}
-
 onUnmounted(() => {
   timeline?.kill()
 })
-
-const splitText = (selector: string) => {
-  const element = document.querySelector(selector)
-  if (!element) return
-  const text = element.textContent || ''
-  element.innerHTML = text.split('').map(letter =>
-    `<span class="char">${letter === ' ' ? '&nbsp;' : letter}</span>`,
-  ).join('')
-}
 </script>
 
 <template>
@@ -56,16 +82,36 @@ const splitText = (selector: string) => {
       Bouncy Cards
     </h1>
     <div class="content max-w-[100vw] space-y-3.5 px-3.5 leading-relaxed sm:px-0">
-      <CreationsPostLinks
-        post-link="https://x.com/codewithmontana/status/1894337850620903439"
-      />
+      <CreationsPostLinks post-link="https://x.com/codewithmontana/status/1894337850620903439" />
     </div>
     <CreationsShowcase
       :is-replay="true"
       class="h-[450px]"
-      @restart="onRestartAnimation"
     >
-      Coming Soon
+      <div class="marquee-container flex whitespace-nowrap absolute top-0 p-5 left-0 right-0">
+        <!-- Inner container that moves -->
+        <div class="flex items-center space-x-6 flex-nowrap">
+          <div
+            v-for="(img, index) in allImages"
+            :key="index"
+            class="size-12 marquee-item rounded-md flex-shrink-0 overflow-hidden"
+          >
+            <NuxtImg
+              :src="img.src"
+              :alt="img.alt"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="text-center grid gap-3 mt-24">
+        <h2 class="text-3xl sm:text-5xl font-semibold">
+          You will find yourself <br> among us
+        </h2>
+        <p class="text-sm text-muted-foreground">
+          Dive into a dynamic community where artists and buyers seamlessly merge.
+        </p>
+      </div>
     </CreationsShowcase>
   </section>
 </template>
