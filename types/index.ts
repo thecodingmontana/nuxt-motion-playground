@@ -24,7 +24,7 @@ export const links = ref([
       { name: 'Airbnb Image', path: '/creations/airbnb-image' },
       { name: 'Showcase Cards', path: '/creations/showcase-cards' },
       { name: 'Sentinel Protocol', path: '/creations/sentinel-protocol' },
-      { name: 'Bouncy Cards', path: '/creations/bouncy-cards' },
+      { name: 'Service Card', path: '/creations/service-card' },
     ],
   },
 ])

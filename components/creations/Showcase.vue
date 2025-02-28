@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { Button } from '../ui/button'
+import { cn } from '@/lib/utils'
 
 const { $gsap } = useNuxtApp()
 
 const props = defineProps<{
   onRestart?: () => void
   isReplay: boolean
+  buttonClass?: string
 }>()
 
 let showcaseAnimation: gsap.core.Tween | null = null
@@ -31,7 +33,10 @@ onUnmounted(() => {
       v-if="props?.isReplay"
       size="icon"
       variant="ghost"
-      class="absolute top-2 right-2 z-20 text-white rounded-full"
+      :class="cn(
+        'absolute top-2 right-2 z-20 text-white rounded-full',
+        props?.buttonClass,
+      )"
       @click="props?.onRestart"
     >
       <Icon
