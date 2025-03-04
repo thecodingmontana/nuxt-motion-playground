@@ -16,41 +16,43 @@ defineOgImageComponent('Nuxt', {
 })
 
 const { $gsap } = useNuxtApp()
+const isShow = ref(false)
 
-let timeline: gsap.core.Timeline | null = null
-
-onMounted(async () => {
-  await nextTick()
-
-  timeline = $gsap.timeline({ paused: true })
-
-  //   timeline
-  //     .fromTo('.animate-text h2', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out', delay: 0.6 })
-  //     .fromTo('.animate-text div p', { opacity: 0, y: 20 }, { y: 0, opacity: 1, duration: 0.3, ease: 'power1.out' })
-  //     .fromTo('.animate-text div button', { opacity: 0, y: 20 }, { y: 0, opacity: 1, duration: 0.3, ease: 'power1.out' })
-  //     .fromTo(
-  //       '.grid .industrial, .grid .industrial img, .grid .commercial, .grid .commercial img, .grid .residential, .grid .residential img',
-  //       { scaleY: 0, transformOrigin: 'bottom' },
-  //       { scaleY: 1, duration: 1.2, ease: 'power2.out', stagger: 0.2, delay: 0.5 },
-  //     )
-  //     .call(() => {
-  //       $gsap.to('.grid .industrial div, .grid .commercial div, .grid .residential div', {
-  //         opacity: 1,
-  //         duration: 0.5,
-  //         ease: 'power2.out',
-  //       })
-  //     })
-
-  timeline.play()
-})
-
-const onRestartAnimation = () => {
-  timeline?.restart()
+const onDeleteFlip = () => {
+  if (isShow.value) {
+    $gsap.to('.delete', {
+      rotateX: 0,
+      duration: 0.6,
+    })
+  }
+  else {
+    $gsap.to('.delete', {
+      rotateX: 180,
+      duration: 0.6,
+    })
+  }
+  setTimeout(() => {
+    isShow.value = !isShow.value
+  }, 600)
 }
 
-onUnmounted(() => {
-  timeline?.kill()
-})
+const onCancelFlip = () => {
+  if (!isShow.value) {
+    $gsap.to('.cancel', {
+      rotateX: 0,
+      duration: 0.6,
+    })
+  }
+  else {
+    $gsap.to('.cancel', {
+      rotateX: -180,
+      duration: 0.6,
+    })
+  }
+  setTimeout(() => {
+    isShow.value = !isShow.value
+  }, 600)
+}
 </script>
 
 <template>
@@ -60,17 +62,29 @@ onUnmounted(() => {
     </h1>
     <div class="content max-w-[100vw] space-y-3.5 px-3.5 leading-relaxed sm:px-0">
       <CreationsPostLinks
-        post-link="https://x.com/codewithmontana/status/1895358257629376807"
+        original-link="https://ui.lndev.me/components/flip-delete-button#code"
       />
     </div>
     <CreationsShowcase
-      :is-replay="true"
+      :is-replay="false"
       class="h-[45vh] sm:h-[450px] overflow-y-scroll sm:overflow-hidden"
       button-class="text-black dark:text-white"
-      @restart="onRestartAnimation"
     >
-      <Button>
-        Hello
+      <Button
+        v-if="isShow"
+        class="px-10 cancel rounded-full transition-transform duration-200 hover:scale-105"
+        variant="outline"
+        @click="onCancelFlip"
+      >
+        Cancel
+      </Button>
+      <Button
+        v-else
+        class="px-10 delete rounded-full transition-transform duration-200 hover:scale-105"
+        variant="destructive"
+        @click="onDeleteFlip"
+      >
+        Delete
       </Button>
     </CreationsShowcase>
   </section>

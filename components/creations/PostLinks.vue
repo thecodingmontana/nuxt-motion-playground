@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
-  postLink: string
+  postLink?: string
   originalLink?: string
 }>()
 
@@ -26,6 +26,7 @@ onUnmounted(() => {
 <template>
   <div class="links flex items-center gap-3.5 px-3.5 sm:px-0">
     <NuxtLink
+      v-if="props?.postLink"
       target="_blank"
       :to="props.postLink"
     >
