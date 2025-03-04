@@ -25,6 +25,7 @@ export const links = ref([
       { name: 'Showcase Cards', path: '/creations/showcase-cards' },
       { name: 'Sentinel Protocol', path: '/creations/sentinel-protocol' },
       { name: 'Service Card', path: '/creations/service-card' },
+      { name: 'Flip Delete Button', path: '/creations/flip-delete-button' },
     ],
   },
 ])
