@@ -60,7 +60,7 @@ onUnmounted(() => {
     </h1>
     <div class="content max-w-[100vw] space-y-3.5 px-3.5 leading-relaxed sm:px-0">
       <CreationsPostLinks
-        post-link="https://x.com/codewithmontana/status/1894337850620903439"
+        post-link="https://x.com/codewithmontana/status/1895358257629376807"
       />
     </div>
     <CreationsShowcase

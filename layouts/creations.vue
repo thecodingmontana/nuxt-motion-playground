@@ -40,7 +40,9 @@ defineOgImageComponent('Nuxt', {
     <div class="mt-9 flex flex-1 gap-x-9 lg:px-9">
       <CreationsSidebar />
       <main class="mx-auto mb-36 flex max-w-screen-md flex-1 flex-col space-y-9 px-3.5 lg:max-w-none">
-        <slot />
+        <client-only>
+          <slot />
+        </client-only>
       </main>
     </div>
     <Footer />
