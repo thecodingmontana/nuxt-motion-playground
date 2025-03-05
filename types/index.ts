@@ -32,6 +32,7 @@ export const links = ref([
       { name: 'Sentinel Protocol', path: '/creations/sentinel-protocol' },
       { name: 'Service Card', path: '/creations/service-card' },
       { name: 'Flip Delete Button', path: '/creations/flip-delete-button' },
+      { name: 'Smooth Transition', path: '/creations/smooth-transition' },
     ],
   },
 ])
