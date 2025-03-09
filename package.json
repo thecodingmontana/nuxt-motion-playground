@@ -43,6 +43,7 @@
     "@iconify-json/hugeicons": "^1.2.3",
     "@iconify-json/logos": "^1.2.4",
     "@iconify-json/simple-icons": "^1.2.25",
+    "@iconify-json/solar": "^1.2.2",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "husky": "^9.1.7",
     "typescript": "^5.7.3"

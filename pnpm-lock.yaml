@@ -90,6 +90,9 @@ importers:
       '@iconify-json/simple-icons':
         specifier: ^1.2.25
         version: 1.2.25
+      '@iconify-json/solar':
+        specifier: ^1.2.2
+        version: 1.2.2
       '@nuxtjs/tailwindcss':
         specifier: ^6.13.1
         version: 6.13.1(magicast@0.3.5)
@@ -604,6 +607,9 @@ packages:
 
   '@iconify-json/simple-icons@1.2.25':
     resolution: {integrity: sha512-2E1/gOCO97rF6usfhhiXxwzCb+UhdEsxW3lW1Sew+xZY0COY6dp82Z/r1rUt2fWKneWjuoGcNeJHHXQyG8mIuw==}
+
+  '@iconify-json/solar@1.2.2':
+    resolution: {integrity: sha512-lcTb6DWL4HZObiY1W3fHfuxxuQHUc6CFHFeywKEx7Ry0k+dU6POZCMC7oVLr0F8vuf+KgaQ3oOoGO/yFzOwrNg==}
 
   '@iconify/collections@1.0.520':
     resolution: {integrity: sha512-cZtEPxgS73CoszQoJ4yLOf9yO2f5QSTiUfjLIFcMNJqh1eIIKBWOeu/8fJB4noq+dxP/g68o/njf4V6p+73HGw==}
@@ -5388,6 +5394,10 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/simple-icons@1.2.25':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/solar@1.2.2':
     dependencies:
       '@iconify/types': 2.0.0
 
