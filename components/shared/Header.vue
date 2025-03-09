@@ -23,15 +23,6 @@
           class="size-5"
         />
       </NuxtLink>
-      <NuxtLink
-        to="/templates"
-        class="items-center justify-center transition-colors duration-300 ease-out dark:text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-neutral-500 dark:focus-visible:ring-neutral-500 focus-visible:rounded flex"
-      >
-        <Icon
-          name="solar:gallery-wide-outline"
-          class="size-5"
-        />
-      </NuxtLink>
       <hr
         class="h-6 w-px border-l border-neutral-200 dark:border-neutral-800"
       >
